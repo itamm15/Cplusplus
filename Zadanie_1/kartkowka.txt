@@ -1,0 +1,153 @@
+zad 1 
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main(){
+
+    ifstream plik("ciagi.txt");
+
+    string buffor;
+    int najwiekszaRoznica = 0, sumOgolna = 0, roznica = 0, sum = 0;
+    //start here
+    while(plik>>buffor){
+        roznica = 0;
+        sum = 0;
+        int buffSize = std::stoi(buffor);
+        int tab[buffSize];
+        for(int i = 0;i<buffSize;i++){
+            plik >> tab[i];
+            //cout << tab[i] << endl;
+        }
+        roznica = tab[1] - tab[0];
+        for(int i = 1;i<=buffSize;i++){
+            if(roznica == tab[i] - tab[i-1]){
+                sum++;
+            }
+        }
+        if(sum==buffSize-1){
+            sumOgolna++;
+            if(roznica>najwiekszaRoznica){
+                najwiekszaRoznica = roznica;
+            }
+        }
+    }
+
+    cout << sumOgolna << ", a roznica to " << najwiekszaRoznica;
+}
+
+odpowiedz: 44, a roznica to 246849
+
+
+
+----------------------------------------------------------------------
+
+zad 2 
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main(){
+
+    ifstream plik("ciagi.txt");
+
+    string buffor;
+    int najwiekszaRoznica = 0, sumOgolna = 0, roznica = 0, sum = 0;
+    //start here
+    while(plik>>buffor){
+        roznica = 0;
+        sum = 0;
+        int buffSize = std::stoi(buffor);
+        int tab[buffSize];
+        for(int i = 0;i<buffSize;i++){
+            plik >> tab[i];
+            //cout << tab[i] << endl;
+        }
+        roznica = tab[1] - tab[0];
+        for(int i = 1;i<=buffSize;i++){
+            if(roznica == tab[i] - tab[i-1]){
+                sum++;
+            }
+        }
+        if(sum==buffSize-1){
+            sumOgolna++;
+            if(roznica>najwiekszaRoznica){
+                najwiekszaRoznica = roznica;
+            }
+        }
+    }
+
+    cout << sumOgolna << ", a roznica to " << najwiekszaRoznica;
+}
+odpowiedz : 
+27
+551368
+1000000
+250047
+1000
+531441
+
+-------------------------------------------------------------------------
+
+zad 3 
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main(){
+    ifstream plik("bledne.txt");
+    int zly = 0, roznica = 0;
+    string buffor;
+    while(plik>>buffor){
+        int buffSize = stoi(buffor);
+        int tab[buffSize];
+
+        for(int i = 0;i<buffSize;i++){
+            plik >> tab[i];
+        }
+        roznica = tab[1] - tab[0];
+        for(int i = 1;i<buffSize;i++){
+            if(tab[i]-tab[i-1]!=roznica){
+                int wieksza = tab[i+1] - tab[i];
+                if(wieksza==roznica){
+                    zly = tab[i-1];
+                }else{
+                    zly = tab[i];
+                }
+            }
+        }
+        cout << zly << endl;
+    }
+
+
+}
+
+odpowiedz 
+
+6
+36
+421503
+362326
+303276
+145117
+40828
+514992
+90367
+177326
+390126
+842436
+37889
+11106
+149243
+80882
+529815
+988401
+29559
+953023
